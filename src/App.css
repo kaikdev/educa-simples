@@ -1,42 +1,107 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* container principal */
+#root, .app-container {
+  min-height: 100vh;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+body {
+  font-family: sans-serif; /* fonte principal */
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #fffab552;
+  color: #5e3e32;
 }
 
-.card {
-  padding: 2em;
+* {
+  font-family: 'Poppins', sans-serif;
 }
 
-.read-the-docs {
-  color: #888;
+body,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  min-height: calc(100vh - 422px);
+}
+
+h2.swal2-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+div.swal2-html-container {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.swal2-actions button {
+  font-size: 16px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 15px;
+}
+
+.swal2-icon.swal2-icon-show {
+  margin-top: 1.5rem;
+  margin-bottom: 0px;
+  transform: scale(0.85);
+}
+
+.swal2-popup.swal2-modal.swal2-show {
+  padding-bottom: 1.5rem;
+}
+
+div:where(.swal2-container) button:where(.swal2-styled):where(.swal2-confirm) {
+  background-color: #0074e5 !important;
+}
+
+.btn-close {
+  box-shadow: none !important;
+}
+
+main.main-dashboard {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: calc(100vh - 70px);
+}
+
+div[vw].enabled {
+  margin-right: 2px !important;
+}
+
+textarea {
+  border: 1px solid #dfdfdf !important;
+  box-shadow: none !important;
 }
