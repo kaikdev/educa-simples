@@ -1,0 +1,245 @@
+.modal-backdrop.show {
+    opacity: 0.6 !important;
+}
+
+.modal-login .modal-content {
+    border-radius: 5px;
+    border: none;
+}
+
+.modal-login button.btn-close {
+    font-size: 14px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.modal-login .modal-body {
+    padding: 3rem 1.5rem 1.5rem;
+    text-align: center;
+}
+
+.modal-login h6.modal-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.modal-login .item-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-login .item-input input {
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    border: 1px solid #dfdfdf;
+    border-radius: 0px 5px 5px 0px;
+    font-size: 16px;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.modal-login .item-input input:focus {
+    background-color: #f6f6f6;
+}
+
+.modal-login .icon-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 5px 0px 0px 5px;
+    border-right: none;
+    border: 1px solid #dfdfdf;
+    background-color: #dfdfdf;
+    cursor: pointer;
+}
+
+.modal-login button.btn-default {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    font-weight: 600;
+    background-color: #fff100;
+    border: 2px solid #c0b60078;
+    color: #5e3e32;
+}
+
+.modal-login button.btn-default:hover {
+    transition: .2s;
+    background-color: #e4d800;
+}
+
+.modal-login a {
+    color: #5e3e32;
+    font-weight: 400;
+}
+
+.modal-login a:hover {
+    text-decoration: underline;
+}
+
+.footer-login {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dfdfdf;
+}
+
+.footer-login a {
+    margin-left: 5px;
+    white-space: nowrap;
+}
+
+#modalCadastro .item-input {
+    flex-direction: column;
+}
+
+#modalCadastro .item-input label,
+.item-input-user label {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#modalCadastro .item-input input {
+    border-radius: 5px;
+}
+
+.item-input-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+textarea#presentation {
+    font-size: 16px;
+}
+
+.item-input-user .btn-group {
+    width: 100%;
+}
+
+.item-input-user .btn-group label {
+    font-size: 16px;
+    margin: 0px;
+    text-align: center;
+    border-color: #5e3e32;
+}
+
+.item-input-user .btn-group label.active {
+    background-color: #5e3e32;
+}
+
+.item-input-user .btn-group>.btn-group:not(:last-child)>.btn,
+.item-input-user .btn-group>.btn.dropdown-toggle-split:first-child,
+.item-input-user .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.item-input-user .btn-group>.btn-group:not(:first-child)>.btn,
+.item-input-user .btn-group>.btn:nth-child(n+3),
+.item-input-user .btn-group>:not(.btn-check)+.btn {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.item-input.password {
+    position: relative;
+}
+
+.item-input.password input {
+    padding-right: 40px;
+}
+
+.item-input button.show-password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 40px;
+    width: 40px;
+    font-size: 15px;
+    border-radius: 0px 5px 5px 0px;
+    border: none !important;
+    background-color: transparent;
+}
+
+.item-input button.show-password:hover {
+    transition: .2s;
+    background-color: #dfdfdf;
+}
+
+.image-preview-container {
+    position: relative;
+    background-color: #f6f6f6;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.btn-remove-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 30px;
+    min-height: 30px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #d33;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.btn-remove-image:hover {
+    background: #c72e2e;
+    color: #e7e7e7;
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 180px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+#modalCadastro .item-input > input[type="file"] {
+    line-height: 28px;
+}
+
+.btn-check+.btn:hover {
+    border-color: #5e3e32;
+    color: #5e3e32;
+}
+
+label.btn.btn-outline-primary {
+    color: #5e3e32;
+}
+
+.btn-check:checked+.btn, 
+.btn.active, .btn.show, 
+.btn:first-child:active, 
+:not(.btn-check)+.btn:active {
+    border-color: #5e3e32;
+    color: #fff;
+}

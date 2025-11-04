@@ -105,3 +105,7 @@ textarea {
   border: 1px solid #dfdfdf !important;
   box-shadow: none !important;
 }
+
+.bg-background {
+  background-color: #fffde7 !important;
+}

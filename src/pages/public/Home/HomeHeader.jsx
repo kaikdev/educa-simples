@@ -66,7 +66,7 @@ const HomeHeader = ({ onLoginClick, onRegisterClick }) => {
                     
                     {/* Botão de Login (Chama a função recebida por prop) */}
                     <li>
-                        <a href="#" onClick={() => { onLoginClick(); closeMenu(); }}>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#modalLogin">
                             Login
                         </a>
                     </li>

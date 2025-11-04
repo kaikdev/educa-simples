@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import HomeHeader from './HomeHeader';
 import HomeFooter from './HomeFooter';
 import HomeContent from './HomeContent';
-//import LoginModal from './components/LoginModal/LoginModal'; // Descomente para testes
-//import RegisterModal from './components/RegisterModal/RegisterModal'; // Descomente para testes
+import LoginModal from './components/modals/LoginModal';
+import RegisterModal from './components/modals/RegisterModal';
+import RecoverPasswordModal from './components/modals/RecoverPasswordModal';
 
 function Home() {
     // ESTADO: Controla a visibilidade dos modais.
@@ -42,19 +43,9 @@ function Home() {
 
             <HomeFooter onLoginClick={openLogin} />
 
-            {/* AQUI ESTAMOS USANDO A RENDERIZAÇÃO CONDICIONAL */}
-            {isLoginOpen && (
-                <LoginModal
-                    onClose={closeModal}
-                    onSwitchToRegister={openRegister}
-                />
-            )}
-            {isRegisterOpen && (
-                <RegisterModal
-                    onClose={closeModal}
-                    onSwitchToLogin={openLogin}
-                />
-            )}
+            <LoginModal />
+            <RegisterModal />
+            <RecoverPasswordModal />
         </div>
     );
 }
