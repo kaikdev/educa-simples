@@ -109,3 +109,27 @@ textarea {
 .bg-background {
   background-color: #fffde7 !important;
 }
+
+.hover\:text-accent-foreground:hover {
+  color: #4d2e23;
+}
+
+.btn-index:hover {
+  background-color: hsl(var(--accent)) !important;
+}
+
+.rounded-lg.bg-card.text-card-foreground.shadow-sm.transition-all.hover\:scale-105.hover\:shadow-lg.border-2 {
+  margin-bottom: 1rem;
+}
+
+.h-10.items-center.justify-center.rounded-md.bg-muted.p-1.text-muted-foreground.grid.w-full.grid-cols-2 {
+    height: auto;
+}
+
+.h-10.items-center.justify-center.rounded-md.bg-muted.p-1.text-muted-foreground.grid.w-full.grid-cols-2 button {
+    padding: 0.75rem;
+}
+
+form.space-y-4 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  background-color: #f6f6f6 !important;
+}

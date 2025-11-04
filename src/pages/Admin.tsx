@@ -143,7 +143,7 @@ const Admin = () => {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full">
+                    <Button type="submit" className="w-full mt-4">
                       Cadastrar Matéria
                     </Button>
                   </form>
@@ -262,7 +262,7 @@ const Admin = () => {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full">
+                    <Button type="submit" className="w-full mt-4">
                       Cadastrar Exercício
                     </Button>
                   </form>
