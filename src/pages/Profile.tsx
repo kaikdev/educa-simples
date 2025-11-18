@@ -32,7 +32,7 @@ const Profile = () => {
         }//,
         //body: JSON.stringify({ correct: correctA })
       }).then((e) => e.json())
-      console.log(result)
+      //console.log(result)
       return result
     } catch (e) {
       console.log(e)
@@ -50,7 +50,7 @@ const Profile = () => {
         }//,
         //body: JSON.stringify({ correct: correctA })
       }).then((e) => e.json())
-      console.log(result)
+      //console.log(result)
       if(result.msgError){
         throw new Error("erro")
       }

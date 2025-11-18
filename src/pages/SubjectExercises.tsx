@@ -19,7 +19,7 @@ const SubjectExercises = () => {
         "Content-Type": "application/json"
       },
     }).then((e)=>e.json())
-    console.log(result)
+    //console.log(result)
     if(!result.msgError){
       setSubject({subjectId:result.id,description:result.description})
     }
@@ -35,7 +35,7 @@ const SubjectExercises = () => {
     if(!result.msgError){
       setSubjectExercises(result)
     }
-    console.log(result)
+    //console.log(result)
   }
   const [subject,setSubject] = useState(null)
   //const subject = subjects.find((s) => s.id === subjectId);

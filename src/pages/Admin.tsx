@@ -39,14 +39,14 @@ const Admin = () => {
     if (!handleFormSubmit("m")) {
       return;
     }
-    console.log("Nova matéria:", subjectForm);
+    //console.log("Nova matéria:", subjectForm);
     let result:any=""
     try {
       //const { icon, ...payload } = subjectForm //{ email: email, password: password }
       const payload = subjectForm
 
       let token = `Bearer ${localStorage.getItem("token")}`
-      console.log()
+      //console.log()
       result = await fetch("http://localhost:3000/quest", {
         method: "POST",
         headers: {
@@ -55,7 +55,7 @@ const Admin = () => {
         },
         body: JSON.stringify(payload)
       }).then((e) => e.json())
-      console.log(result)
+      //console.log(result)
       if (result.msgError || result.error) {
         throw new Error("erro ao cadastrar matéria");
       }
@@ -73,6 +73,7 @@ const Admin = () => {
       if (result.statusCode == 401 || result.statusCode == 403) {
         nav("/")
         localStorage.setItem("token",null)
+        localStorage.setItem("role",null)
       }
     }
     //toast.success("Matéria cadastrada com sucesso!");
@@ -96,7 +97,7 @@ const Admin = () => {
       subjectId: exerciseForm["subjectId"],
       answers: answersArray
     }
-    console.log(payload)
+    //console.log(payload)
     let result:any = ""
     try {
       let token = `Bearer ${localStorage.getItem("token")}`
@@ -109,7 +110,7 @@ const Admin = () => {
         },
         body: JSON.stringify(payload)
       }).then((e) => e.json())
-      console.log(result)
+      //console.log(result)
       if (result.msgError || result.statusCode == 403) {
         throw new Error("error ao cadastrar");
       }
@@ -120,6 +121,7 @@ const Admin = () => {
       if (result.statusCode == 401 || result.statusCode == 403) {
         nav("/")
         localStorage.setItem("token",null)
+        localStorage.setItem("role",null)
       }
     }
     /*
@@ -172,11 +174,11 @@ const Admin = () => {
   /*const handleFormSubmit = async (e, cadType) => {
     e.preventDefault();*/
   function checkSubjectName(name){
-    console.log("here")
+    //console.log("here")
     let repeat=false
     subjectArr.forEach((el)=>{
       if(el.name.trim() == name.trim()){
-        console.log("is equal")
+        //console.log("is equal")
         repeat = true
         return;
       }
@@ -203,10 +205,10 @@ const Admin = () => {
       if (!exerciseForm.correctAnswer.trim()) validationErrors.correctAnswer = "Selecione a resposta correta"
     }
 
-    console.log(validationErrors)
+    //console.log(validationErrors)
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      console.log(validationErrors)
+      //console.log(validationErrors)
       Swal.fire({
         icon: 'error',
         title: 'Campos inválidos',
@@ -253,12 +255,12 @@ const Admin = () => {
       }//,
       //body: JSON.stringify(payload)
     }).then((e) => e.json())
-    console.log(result)
+    //console.log(result)
     result = result.map((el) => {
       //el["icon"] = "calculator"
       return el
     })
-    console.log(result)
+    //console.log(result)
     setSubjectArr(result)
   }
 

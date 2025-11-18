@@ -27,9 +27,11 @@ function LoginModal() {
                 },
                 body: JSON.stringify(payload)
             }).then((e) => e.json())
-            console.log(result)
+            //console.log(result)
             if (result.token) {
                 localStorage.setItem("token", result.token)
+                //console.log("the role is "+result.role)
+                localStorage.setItem("role", result.role)
             } else {
                 setLoading(false);
                 throw new Error("credenciais invalidas");

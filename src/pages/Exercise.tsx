@@ -33,13 +33,13 @@ const Exercise = () => {
           ca = i
         }
       })
-      console.log("the exercise is " + ca)
+      //console.log("the exercise is " + ca)
       setExercise({
         id: result.id, question: result.question,
         subjectId: result.subject.id, options: result.answers, correctAnswer: ca
       })
     }
-    console.log(result)
+    //console.log(result)
   }
   if (!exercise) {
     return (
@@ -56,7 +56,7 @@ const Exercise = () => {
     }
 
     //let isCorrect:any = selectedOption //selectedOption === exercise.correctAnswer;
-    console.log(`selected ${selectedOption} - exercise ${exercise.correctAnswer}`)
+    //console.log(`selected ${selectedOption} - exercise ${exercise.correctAnswer}`)
     let isCorrect = selectedOption === exercise.correctAnswer;
     setShowResult(true);
 
@@ -91,7 +91,7 @@ const Exercise = () => {
         },
         body: JSON.stringify({ correct: correctA })
       }).then((e) => e.json())
-      console.log(result)
+      //console.log(result)
     } catch (e) {
       console.log(e)
     }

@@ -6,10 +6,11 @@ import Swal from 'sweetalert2';
 import { toast } from "sonner";
 function RegisterModal(props) {
     //Errors
+    /*
     const handleCadastroSuccess = () => {
         // Fecha este modal e abre o login
         closeRef(); // <-- chama openLogin do Home
-    };
+    };*/
     const [errors, setErrors] = useState({});
 
     const [cadastroNome, setCadastroNome] = useState('');
@@ -43,6 +44,7 @@ function RegisterModal(props) {
         if (imageInputRef.current) {
             imageInputRef.current.value = null;
         }
+        //setErrors({})
     }, [selectedRole]);
 
     useEffect(() => {
@@ -160,12 +162,12 @@ function RegisterModal(props) {
     };*/
     const handleCadastroSubmit = async (e) => {
         e.preventDefault();
-        setCadastroLoading(true);
+        //setCadastroLoading(true);
 
         let validationErrors = {};
 
         // Nome
-        if (!cadastroNome.trim()) validationErrors.nome = "Digite seu nome.";
+        if (!cadastroNome.trim()) validationErrors.name = "Digite seu nome.";
 
         // Email
         if (!isValidEmail(cadastroEmail))
@@ -200,6 +202,8 @@ function RegisterModal(props) {
         }
 
         // ❌ Se houver erros, mostra e para
+        let res = await checkUnique(validationErrors)
+        validationErrors = res
         console.log(validationErrors)
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
@@ -338,6 +342,38 @@ function RegisterModal(props) {
     const isValidPassword = (senha) => {
         return senha.length >= 6;
     };
+    async function checkUnique(validationErrors){
+        let obj = {name:cadastroNome.trim(),email:cadastroEmail.trim()}
+        //console.log("here--------------------------")
+        try{
+            //console.log("selected role id "+selectedRole)
+            if (selectedRole === 'admin'){
+                obj.cpf = cadastroCpf
+            }else{
+                obj = {name:cadastroNome.trim(),email:cadastroEmail.trim()}
+                //(cpf,...obj) = obj
+            }
+            //console.log("the object is ")
+            //console.log(obj)
+            let result = await fetch("http://localhost:3000/user/ckUnique", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(obj)
+            }).then((e) => e.json())
+            //console.log(result)
+            Object.keys(result).forEach((el)=>{
+                if(result[el]){
+                    validationErrors[el]=`${el} já cadastrado`
+                }
+            })
+            //console.log(validationErrors)
+            return validationErrors
+        }catch(e){
+            console.log(e)
+        }
+    }
 
     return (
         <div className="modal fade" id="modalCadastro" tabIndex="-1" aria-labelledby="modalCadastroLabel" aria-hidden="true">
@@ -396,7 +432,7 @@ function RegisterModal(props) {
                                     required
                                     disabled={cadastroLoading}
                                 />
-                                {errors.nome && <p>{errors.nome}</p>}
+                                {errors.name && <p>{errors.name}</p>}
                             </div>
 
                             <div className="item-input mb-3">

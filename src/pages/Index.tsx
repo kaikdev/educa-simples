@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom";
 import { subjects } from "@/data/mockData";
 import SubjectCard from "@/components/SubjectCard";
-import { BookOpen, User, Settings } from "lucide-react";
+import { BookOpen, User, Settings,LogOutIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImg from '../assets/image/logo-educa-simples-brown.png';
 
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 const Index = () => {
+  const nav = useNavigate()
+  const [role, setRole] = useState("")
   const [SubjectsArr, setSubjectsArr] = useState([])
   useEffect(() => {
+    let rol = localStorage.getItem("role")
+    //console.log("the role is " + rol)
+    //console.log(rol)
+    setRole(rol)
     findSubjects()
   }, [])
   async function findSubjects() {
@@ -20,27 +27,43 @@ const Index = () => {
       }//,
       //body: JSON.stringify(payload)
     }).then((e) => e.json())
-    console.log(result)
-    result = result.map((el)=>{
+    //console.log(result)
+    result = result.map((el) => {
       //el["icon"] = "calculator"
       return el
     })
     setSubjectsArr(result)
   }
+  function LogOut(){
+    localStorage.setItem("token",null)
+    localStorage.setItem("role",null)
+    nav("/")
+
+  }
+  function deleteSubjects(id:number){
+    console.log("deleting subject id "+id)
+  }
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-12">
         <div className="flex justify-end gap-2 mb-8">
-          <Link to="/perfil">
-            <Button variant="outline" size="icon" className="btn-index">
-              <User className="w-5 h-5" />
-            </Button>
-          </Link>
-          <Link to="/admin">
-            <Button variant="outline" size="icon" className="btn-index">
-              <Settings className="w-5 h-5" />
-            </Button>
-          </Link>
+          {role == "user" &&
+            <Link to="/perfil">
+              <Button variant="outline" size="icon" className="btn-index">
+                <User className="w-5 h-5" />
+              </Button>
+            </Link>
+          }
+          {role == "admin" &&
+            <Link to="/admin">
+              <Button variant="outline" size="icon" className="btn-index">
+                <Settings className="w-5 h-5" />
+              </Button>
+            </Link>
+          }
+          <Button variant="outline" size="icon" className="btn-index" onClick={()=>LogOut()}>
+            <LogOutIcon className="w-5 h-5"/>
+          </Button>
         </div>
 
         <div className="text-center mb-12">
@@ -59,7 +82,7 @@ const Index = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {SubjectsArr.map((subject) => (
-            <SubjectCard key={subject.id} subject={subject} />
+            <SubjectCard key={subject.id} subject={subject}/>
           ))}
         </div>
       </div>
