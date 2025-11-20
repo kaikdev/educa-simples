@@ -38,6 +38,17 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <style>
+        {`
+          .min-h-screen.bg-background {
+            background-image: url("/src/assets/image/background-animais.webp");
+            background-position: bottom center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+          }
+        `}
+      </style>
+
       <div className="container mx-auto px-4 py-12">
 
         {/* BOTÕES SUPERIORES */}

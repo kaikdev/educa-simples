@@ -52,6 +52,17 @@ const SubjectExercises = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <style>
+        {`
+          .min-h-screen.bg-background {
+            background-image: url("/src/assets/image/background-criancas.webp");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+        `}
+      </style>
+
       <div className="container mx-auto px-4 py-12">
         <Link to="/index">
           <Button variant="ghost" className="mb-8 gap-2">
