@@ -118,7 +118,9 @@ const Exercise = () => {
     let str = `/exercicio/${nextE[nextId]}/${current}?data=${encodeURIComponent(JSON.stringify(nextE))}`
     console.log(str)
     navigate(str);
-    window.location.reload()
+    setTimeout(()=>{
+      window.location.reload()
+    },500)
   };
 
   return (
