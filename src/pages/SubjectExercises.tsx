@@ -21,7 +21,7 @@ const SubjectExercises = () => {
     }).then((e)=>e.json())
     //console.log(result)
     if(!result.msgError){
-      setSubject({subjectId:result.id,description:result.description})
+      setSubject({subjectId:result.id,description:result.description,name:result.name})
     }
   }
   async function findSubjectExercises() {
