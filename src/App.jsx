@@ -40,6 +40,7 @@ function App() {
                 <Route path="/exercicio/:exerciseId/:nextId" element={<Exercise />} />
                 <Route path="/perfil" element={<Profile />} />
                 <Route path="/admin" element={<Admin />} />
+                <Route path="/admin/edit" element={<Admin />} />
                 
                 {/* Rota para página não encontrada */}
                 <Route path="*" element={<NotFound />} />
