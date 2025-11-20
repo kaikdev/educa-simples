@@ -12,7 +12,7 @@ const HomeFooter = ({ onLoginClick }) => {
                 </Link>
 
                 <p className="footer-text">
-                    Este sistema é um sistema desenvolvido para fins educacionais do "Projeto Integrador - 3º Sem." do curso de Desenvolvimento de Software Multiplataforma da FATEC da Zona Leste.
+                    Este sistema é um sistema desenvolvido para fins educacionais do "Projeto Integrador - 4º Sem." do curso de Desenvolvimento de Software Multiplataforma da FATEC da Zona Leste.
                 </p>
                 <p className="footer-copy">&copy; {new Date().getFullYear()} Educa Simples. Todos os direitos reservados.</p>
             </div>
@@ -66,7 +66,7 @@ const HomeFooter = ({ onLoginClick }) => {
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/user49tbd" target="_blank" rel="noopener noreferrer">
+                            <a href="https://github.com/JonathanMouraAndradeGit" target="_blank" rel="noopener noreferrer">
                                 Jonathan Moura
                             </a>
                         </li>
