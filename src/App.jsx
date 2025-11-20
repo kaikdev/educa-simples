@@ -37,7 +37,7 @@ function App() {
                 {/* Rotas Internas do Novo Projeto */}
                 <Route path="/index" element={<Index />} />
                 <Route path="/materia/:subjectId" element={<SubjectExercises />} />
-                <Route path="/exercicio/:exerciseId" element={<Exercise />} />
+                <Route path="/exercicio/:exerciseId/:nextId" element={<Exercise />} />
                 <Route path="/perfil" element={<Profile />} />
                 <Route path="/admin" element={<Admin />} />
                 

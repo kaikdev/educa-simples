@@ -8,6 +8,7 @@ import { describe } from "node:test";
 import { Description } from "@radix-ui/react-dialog";
 const SubjectExercises = () => {
   const { subjectId } = useParams();
+  const [nextE,setNextE] = useState();
   useEffect(() => {
     findSubject()
     findSubjectExercises()
@@ -33,6 +34,8 @@ const SubjectExercises = () => {
       },
     }).then((e)=>e.json())
     if(!result.msgError){
+      let el = convertToIdsArr(result)
+      setNextE(el)
       setSubjectExercises(result)
     }
     //console.log(result)
@@ -48,6 +51,9 @@ const SubjectExercises = () => {
         <p className="text-xl text-muted-foreground">Matéria não encontrada</p>
       </div>
     );
+  }
+  function convertToIdsArr(subjectExercisesp){
+    return subjectExercisesp.map((el)=>el.id)
   }
 
   return (
@@ -72,7 +78,10 @@ const SubjectExercises = () => {
         <div className="max-w-3xl mx-auto space-y-4">
           
           {subjectExercises.map((exercise, index) => (
-            <ExerciseCard key={exercise.id} exercise={exercise} index={index} />
+            <ExerciseCard key={exercise.id} exercise={exercise} index={index} 
+            next={(subjectExercises.length-1 >= (index+1)) ? index+1 : 0}
+            arr = {nextE}
+            />
           ))}
         </div>
       </div>

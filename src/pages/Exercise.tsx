@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { exercises } from "@/data/mockData";
 import { useProgress } from "@/contexts/ProgressContext";
 import { Button } from "@/components/ui/button";
@@ -9,16 +9,25 @@ import { toast } from "sonner";
 
 const Exercise = () => {
   const { exerciseId } = useParams();
+  const { nextId } = useParams();
   const navigate = useNavigate();
   const { addResult } = useProgress();
   //const exercise = exercises.find((e) => e.id === exerciseId);
   const [exercise, setExercise] = useState(null)
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
-
+  const [nextE,setNextE]:any = useState([]);
+  const [params] = useSearchParams();
   useEffect(() => {
     getExercise()
+    setArr()
   }, [])
+  async function setArr() {
+    const data = JSON.parse(params.get("data"));
+    console.log("params is ")
+    console.log(data)
+    setNextE(data)
+  }
   async function getExercise() {
     let result = await fetch(`http://localhost:3000/quest/${exerciseId}/byId`, {
       method: "GET",
@@ -89,7 +98,7 @@ const Exercise = () => {
           "Content-Type": "application/json",
           "Authorization": token
         },
-        body: JSON.stringify({ correct: correctA,questionID: exerciseId})
+        body: JSON.stringify({ correct: correctA, questionID: exerciseId })
       }).then((e) => e.json())
       //console.log(result)
     } catch (e) {
@@ -98,7 +107,18 @@ const Exercise = () => {
   }
 
   const handleNext = () => {
-    navigate(`/materia/${exercise.subjectId}`);
+    //navigate(`/materia/${exercise.subjectId}`);
+    console.log("here is the vals")
+    console.log(nextId)
+    console.log(nextE)
+    let current=0
+    if((nextE.length-1) >= (parseInt(nextId)+1)){
+      current = (parseInt(nextId)+1)
+    }
+    let str = `/exercicio/${nextE[nextId]}/${current}?data=${encodeURIComponent(JSON.stringify(nextE))}`
+    console.log(str)
+    navigate(str);
+    window.location.reload()
   };
 
   return (
