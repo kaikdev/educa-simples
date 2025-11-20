@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Modal.css';
-
+import Swal from 'sweetalert2';
 function RecoverPasswordModal() {
     const [email, setEmail] = useState('');
     const [loading, setLoading] = useState(false);
@@ -11,7 +11,7 @@ function RecoverPasswordModal() {
 
     const handleRecoverPasswordSubmit = async (e) => {
         e.preventDefault();
-        
+
         if (!email) {
             Swal.fire({
                 icon: 'warning',
@@ -21,31 +21,51 @@ function RecoverPasswordModal() {
             });
             return;
         }
+        try {
+            let result = await fetch("http://localhost:3000/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "Application/json"
+                },
+                body: JSON.stringify({ email: email })
+            }).then((el) => el.json())
+            console.log(result)
+            console.log("enviado")
+            setTimeout(() => {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Solicitação Enviada',
+                    text: "Se um e-mail correspondente for encontrado em nosso sistema, um link para redefinição de senha será enviado.",
+                    confirmButtonText: 'Ok'
+                }).then(() => {
+                    setEmail('');
 
-        setLoading(true);
+                    // Fechar modal (usando Bootstrap)
+                    const modalElement = document.getElementById('modalRecover');
+                    if (modalElement) {
+                        const modalInstance = window.bootstrap.Modal.getInstance(modalElement);
+                        if (modalInstance) {
+                            modalInstance.hide();
+                        }
+                    }
+                });
+
+                //setLoading(false);
+            }, 1500);
+        } catch (e) {
+            console.log(e)
+            Swal.fire({
+                icon: 'warning',
+                title: 'Erro',
+                text: 'erro ao enviar email',
+                confirmButtonText: 'Ok'
+            });
+        }
+
+        //setLoading(true);
 
         // Simulação de envio de recuperação de senha
-        setTimeout(() => {
-            Swal.fire({
-                icon: 'info',
-                title: 'Solicitação Enviada',
-                text: "Se um e-mail correspondente for encontrado em nosso sistema, um link para redefinição de senha será enviado.",
-                confirmButtonText: 'Ok'
-            }).then(() => {
-                setEmail('');
-                
-                // Fechar modal (usando Bootstrap)
-                const modalElement = document.getElementById('modalRecover');
-                if (modalElement) {
-                    const modalInstance = window.bootstrap.Modal.getInstance(modalElement);
-                    if (modalInstance) {
-                        modalInstance.hide();
-                    }
-                }
-            });
 
-            setLoading(false);
-        }, 1500);
     };
 
     return (
@@ -57,7 +77,7 @@ function RecoverPasswordModal() {
 
                         <h6 className="modal-title" id="modalRecoverLabel">Recuperar Senha</h6>
 
-                        <form onSubmit={handleRecoverPasswordSubmit}> 
+                        <form onSubmit={handleRecoverPasswordSubmit}>
                             <div className="item-input mb-3">
                                 <label className="icon-input" htmlFor="recoverEmail">
                                     <i className="fa-solid fa-envelope"></i>
