@@ -203,7 +203,6 @@ section.section-faq {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
 }
 
 .area-faq .area-img img {
@@ -211,7 +210,8 @@ section.section-faq {
 }
 
 #accordionFaq {
-    max-width: 900px;
+    max-width: 800px;
+    width: 100%;
 }
 
 #accordionFaq .accordion-button::after {
@@ -225,10 +225,18 @@ section.section-faq {
     font-weight: 600;
     gap: 1rem;
     box-shadow: none !important;
+    background-color: #fffab552 !important;
+    color: #5e3e32 !important;
+}
+
+.area-faq button.accordion-button:not(.collapsed) {
+    background-color: #fff100 !important;
+    color: #5e3e32 !important;
 }
 
 .area-faq .accordion-item {
     text-align: left;
+    border-color: #5e3e3280 !important;
 }
 
 .area-faq .accordion-body li {
@@ -238,6 +246,12 @@ section.section-faq {
 
 .area-faq .accordion-body {
     font-weight: 500;
+    background-color: #fffab587;
+    color: #5e3e32;
+}
+
+.area-faq .accordion {
+   --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important; 
 }
 
 #sobre,

@@ -3,11 +3,11 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css'; 
 import './HomeContent.css';
 
-import imgPersonagem from '../../../assets/image/personagem.png';
-import imgAprendizado from '../../../assets/image/bloco-de-brinquedo.png';
-import imgDesenvolvimento from '../../../assets/image/aprendendo.png';
-import imgAcompanhamento from '../../../assets/image/pai-e-filho.png';
-import imgSobre from '../../../assets/image/personagem2.png';
+import imgPersonagem from '../../../assets/image/personagem.webp';
+import imgAprendizado from '../../../assets/image/bloco-de-brinquedo.webp';
+import imgDesenvolvimento from '../../../assets/image/aprendendo.webp';
+import imgAcompanhamento from '../../../assets/image/pai-e-filho.webp';
+import imgSobre from '../../../assets/image/personagem2.webp';
 import imgPessoa1 from '../../../assets/image/pessoa-1.jpg';
 import imgPessoa2 from '../../../assets/image/pessoa-2.jpg';
 import imgPessoa3 from '../../../assets/image/pessoa-3.jpg';
@@ -16,8 +16,8 @@ import imgPessoa5 from '../../../assets/image/pessoa-5.jpg';
 import imgPessoa6 from '../../../assets/image/pessoa-6.jpg';
 import imgPessoa7 from '../../../assets/image/pessoa-7.jpg';
 import imgPessoa8 from '../../../assets/image/pessoa-8.jpg';
-import imgFaq from '../../../assets/image/personagem3.png';
-import imgContato from '../../../assets/image/personagem4.png';
+import imgFaq from '../../../assets/image/personagem3.webp';
+import imgContato from '../../../assets/image/personagem4.webp';
 
 const HomeContent = () => {
     // Estado simples para o Formulário de Contato (Front-end puro)
@@ -292,14 +292,14 @@ const HomeContent = () => {
                         <div className="accordion-item">
                             <h6 className="accordion-header" id="headingOne">
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC?
+                                    Para quais crianças o Educa Simples é indicado?
                                 </button>
                             </h6>
 
                             <div id="collapseOne" className="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFaq">
                                 <div className="accordion-body">
                                     <p>
-                                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                                        A plataforma é ideal para crianças em processo de alfabetização ou que estejam revisando conteúdos básicos de Língua Portuguesa e Matemática. Ela funciona como um complemento ao aprendizado escolar, tornando a prática mais leve e motivadora.
                                     </p>
                                 </div>
                             </div>
@@ -308,14 +308,14 @@ const HomeContent = () => {
                         <div className="accordion-item">
                             <h6 className="accordion-header" id="headingTwo">
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC?
+                                    O que as crianças encontram dentro da plataforma?
                                 </button>
                             </h6>
 
                             <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFaq">
                                 <div className="accordion-body">
                                     <p>
-                                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                                        No Educa Simples, as crianças podem praticar exercícios e jogos educativos organizados de maneira simples, visual e intuitiva. Cada atividade é pensada para ajudar na fixação de conteúdos fundamentais e estimular o raciocínio.
                                     </p>
                                 </div>
                             </div>
@@ -324,14 +324,14 @@ const HomeContent = () => {
                         <div className="accordion-item">
                             <h6 className="accordion-header" id="headingThree">
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Where does it come from?
+                                    Quais matérias o Educa Simples trabalha?
                                 </button>
                             </h6>
 
                             <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFaq">
                                 <div className="accordion-body">
                                     <p>
-                                        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+                                        Atualmente, a plataforma é focada em Língua Portuguesa e Matemática Básica — áreas essenciais na formação inicial. Todos os jogos são pensados para reforçar esses conteúdos de forma prática e divertida.
                                     </p>
                                 </div>
                             </div>
@@ -340,14 +340,14 @@ const HomeContent = () => {
                         <div className="accordion-item">
                             <h6 className="accordion-header" id="headingFour">
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    The standard Lorem Ipsum passage, used since the 1500s ?
+                                    Como o Educa Simples ajuda no aprendizado escolar?
                                 </button>
                             </h6>
 
                             <div id="collapseFour" className="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionFaq">
                                 <div className="accordion-body">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                        A plataforma complementa o que é aprendido na escola, oferecendo atividades que reforçam o conteúdo básico e estimulam a prática contínua. Isso ajuda a criança a fixar melhor o aprendizado, ganhar confiança e desenvolver uma base sólida para etapas futuras.
                                     </p>
                                 </div>
                             </div>
@@ -356,14 +356,14 @@ const HomeContent = () => {
                         <div className="accordion-item">
                             <h6 className="accordion-header" id="headingFive">
                                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    1914 translation by H. Rackham ?
+                                    O Educa Simples é um projeto oficial ou comercial?
                                 </button>
                             </h6>
 
                             <div id="collapseFive" className="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionFaq">
                                 <div className="accordion-body">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        Não. O Educa Simples é um sistema desenvolvido exclusivamente para fins educacionais, como parte do Projeto Integrador – 4º semestre do curso de Desenvolvimento de Software Multiplataforma da FATEC Zona Leste. Apesar disso, foi criado com foco em boas práticas, acessibilidade e utilidade real para reforçar o aprendizado infantil.
                                     </p>
                                 </div>
                             </div>
