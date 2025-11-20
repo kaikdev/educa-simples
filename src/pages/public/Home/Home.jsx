@@ -23,12 +23,6 @@ function Home() {
         setIsLoginOpen(false); 
         setIsRegisterOpen(true);
     };
-
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> 6c3b8b7b6b3b036552f29635fcc1f0fa4e92a8d7
     const closeModal = () => {
         // Fecha ambos (ou aquele que estiver aberto)
         setIsLoginOpen(false);
@@ -38,11 +32,6 @@ function Home() {
 
     return (
         <div className="home-page-container">
-<<<<<<< HEAD
-            {/* AGORA AS FUNÇÕES openLogin E openRegister ESTÃO DEFINIDAS NO ESCOPO <contextTheme.Provider value={openLogin()}>*/}
-=======
-            {/* AGORA AS FUNÇÕES openLogin E openRegister ESTÃO DEFINIDAS NO ESCOPO */}
->>>>>>> 6c3b8b7b6b3b036552f29635fcc1f0fa4e92a8d7
             <HomeHeader
                 onLoginClick={openLogin}
                 onRegisterClick={openRegister}
@@ -53,13 +42,8 @@ function Home() {
             <HomeFooter onLoginClick={openLogin} />
 
             <LoginModal />
-<<<<<<< HEAD
-
             <RegisterModal closeRef={openLogin}/>
 
-=======
-            <RegisterModal />
->>>>>>> 6c3b8b7b6b3b036552f29635fcc1f0fa4e92a8d7
             <RecoverPasswordModal />
         </div>
     );
