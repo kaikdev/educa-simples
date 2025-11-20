@@ -124,33 +124,15 @@ const Admin = () => {
         localStorage.setItem("role",null)
       }
     }
-    /*
-    const exerciseData = {
-      subjectId: exerciseForm.subjectId,
-      question: exerciseForm.question,
-      options: [exerciseForm.option1, exerciseForm.option2, exerciseForm.option3],
-      correctAnswer: parseInt(exerciseForm.correctAnswer),
-    };
-    console.log("Novo exercício:", exerciseData);
-    toast.success("Exercício cadastrado com sucesso!");
-    setExerciseForm({
-      subjectId: "",
-      question: "",
-      option1: "",
-      option2: "",
-      option3: "",
-      correctAnswer: "0",
-    });
-    */
   };
   const colorClasses = {
     primary: "primary",
     secondary: "secondary",
     accent: "accent",
     warning: "warning",
-    red: "red",
-    yellow: "yellow",
-    purple: "purple"
+    //red: "red",
+    //yellow: "yellow",
+    //purple: "purple"
   };
   const icons = {
     Book: "Book",
@@ -220,32 +202,6 @@ const Admin = () => {
     setErrors({}); // limpar erros
     return true
   }
-  // Simulação de envio
-  /*
-  const payload = {
-    name: cadastroNome,
-    email: cadastroEmail,
-    password: cadastroSenha,
-    roles: [{ name: selectedRole }],
-    //imagem: imageFile ? imageFile.name : null,
-
-    // Apenas se for usuário
-    ...(selectedRole === 'user' && {
-      userAluno: {
-        //dataNascimento: cadastroData,
-        age: getAge()//cadastroData
-      }
-    }),
-
-    // Apenas se for médico/admin
-    ...(selectedRole === 'admin' && {
-      userAdmin: {
-        cpf: cadastroCpf,
-        especialidade: specialty,
-        apresentacao: presentation
-      }
-    })
-  };*/
   async function findSubjects() {
     let result = await fetch("http://localhost:3000/quest", {
       method: "GET",

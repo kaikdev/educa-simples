@@ -8,7 +8,7 @@ function LoginModal() {
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const [errors, setErrors] = useState({});
+    //const [errors, setErrors] = useState({});
 
     const [showPasswordStates, togglePasswordVisibility] = usePasswordToggle({
         loginSenha: false,
@@ -16,7 +16,7 @@ function LoginModal() {
 
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
+        //setLoading(true);
 
         try {
             const payload = { email: email, password: password }
@@ -33,12 +33,12 @@ function LoginModal() {
                 //console.log("the role is "+result.role)
                 localStorage.setItem("role", result.role)
             } else {
-                setLoading(false);
+                //setLoading(false);
                 throw new Error("credenciais invalidas");
             }
             close()
             navigate('/index');
-            setLoading(false);
+            //setLoading(false);
             setEmail('');
             setPassword('');
         } catch (e) {

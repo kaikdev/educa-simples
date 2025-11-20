@@ -175,40 +175,7 @@ const Profile = () => {
                     </div>
                   </div>
                 );
-              })/*subjects.map((subject) => {
-                const subjectStats = stats.bySubject[subject.id] || {
-                  correct: 0,
-                  incorrect: 0,
-                };
-                const total = subjectStats.correct + subjectStats.incorrect;
-
-                return (
-                  <div key={subject.id} className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-foreground">
-                        {subject.name}
-                      </h3>
-                      <span className="text-sm text-muted-foreground">
-                        {total} {total === 1 ? "resposta" : "respostas"}
-                      </span>
-                    </div>
-                    <div className="flex gap-4 text-sm">
-                      <div className="flex items-center gap-1">
-                        <Trophy className="w-4 h-4 text-success" />
-                        <span className="text-success font-medium">
-                          {subjectStats.correct} acertos
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <XCircle className="w-4 h-4 text-destructive" />
-                        <span className="text-destructive font-medium">
-                          {subjectStats.incorrect} erros
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })*/}
+              })}
             </CardContent>
           </Card>
         </div>

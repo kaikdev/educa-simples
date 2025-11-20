@@ -23,9 +23,9 @@ const SubjectCard = ({ subject }: SubjectCardProps) => {
     secondary: "bg-secondary hover:bg-secondary/90 shadow-secondary/20",
     accent: "bg-accent hover:bg-accent/90 shadow-accent/20",
     warning: "bg-warning hover:bg-warning/90 shadow-warning/20",
-    red: "bg-primary hover:bg-primary/90 shadow-primary/20",
-    yellow: "bg-secondary hover:bg-secondary/90 shadow-secondary/20",
-    purple: "bg-accent hover:bg-accent/90 shadow-accent/20"
+    //red: "bg-primary hover:bg-primary/90 shadow-primary/20",
+    //yellow: "bg-secondary hover:bg-secondary/90 shadow-secondary/20",
+    //purple: "bg-accent hover:bg-accent/90 shadow-accent/20"
   };
   async function deleteSubject(id) {
     console.log("deleting id" + id)

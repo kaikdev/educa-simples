@@ -75,91 +75,6 @@ function RegisterModal(props) {
         value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
         setCadastroCpf(value);
     };
-
-    /*
-    const isValidCpf = (cpf) => {
-        const cpfDigits = cpf.replace(/\D/g, '');
-        return cpfDigits.length === 11;
-    };*/
-
-
-    /*
-    const handleCadastroSubmit = async (e) => {
-        e.preventDefault();
-        setCadastroLoading(true);
-
-        // Validações locais
-        if (cadastroSenha !== confirmarSenha) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'As senhas não coincidem. Por favor, verifique.',
-            });
-            setCadastroLoading(false);
-            return;
-        }
-
-        if (!isValidCpf(cadastroCpf)) {
-            Swal.fire({
-                icon: 'error',
-                title: 'CPF Inválido',
-                text: 'Por favor, insira um CPF válido com 11 dígitos.'
-            });
-            setCadastroLoading(false);
-            return;
-        }
-
-        // Validações específicas por tipo de usuário
-        if (selectedRole === 'user') {
-            if (!cadastroData || !imageFile) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Atenção!',
-                    text: 'Data de Nascimento e Foto do Documento são obrigatórios para Pacientes.',
-                });
-                setCadastroLoading(false);
-                return;
-            }
-        } else if (selectedRole === 'admin') {
-            if (!crm || !specialty || !presentation || !imageFile) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Atenção!',
-                    text: 'Todos os campos (CRM, Especialidade, Apresentação e Imagem de Perfil) são obrigatórios para Médicos.',
-                });
-                setCadastroLoading(false);
-                return;
-            }
-        }
-
-        // Simulação de cadastro bem-sucedido
-        setTimeout(() => {
-            Swal.fire({
-                icon: 'success',
-                title: 'Cadastro Realizado!',
-                text: `${selectedRole === 'user' ? 'Paciente' : 'Médico'} cadastrado com sucesso!`,
-                confirmButtonText: 'Ok'
-            });
-
-            // Limpar formulário
-            setCadastroNome('');
-            setCadastroEmail('');
-            setCadastroCpf('');
-            setCadastroData('');
-            setCadastroSenha('');
-            setConfirmarSenha('');
-            setSelectedRole('user');
-            setCrm('');
-            setSpecialty('');
-            setPresentation('');
-            setImageFile(null);
-            if (imageInputRef.current) {
-                imageInputRef.current.value = null;
-            }
-
-            setCadastroLoading(false);
-        }, 1500);
-    };*/
     const handleCadastroSubmit = async (e) => {
         e.preventDefault();
         //setCadastroLoading(true);
@@ -266,12 +181,6 @@ function RegisterModal(props) {
             setTimeout(()=>{
                 close()
             },2000)
-            //theme()
-            //props.closeRef()
-            /*setTimeout(() => {
-                handleCadastroSuccess()
-            }, 1500)*/
-            //window.location.href = "/login"
         } catch (e) {
             console.log(e)
             Swal.fire({
@@ -280,25 +189,6 @@ function RegisterModal(props) {
                 text: e.msgError //'Erro interno no Servidor.'
             });
         }
-        /*
-        setTimeout(() => {
-            Swal.fire({
-                icon: 'success',
-                title: 'Cadastro Realizado!',
-                text: "Cadastro efetuado com sucesso!",
-            });
-
-            // limpar…
-            setCadastroNome('');
-            setCadastroEmail('');
-            setCadastroCpf('');
-            setCadastroData('');
-            setCadastroSenha('');
-            setConfirmarSenha('');
-            setImageFile(null);
-
-            setCadastroLoading(false);
-        }, 1500);*/
     };
     //setCadastroLoading(false)
 
