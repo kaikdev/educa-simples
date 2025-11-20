@@ -12,12 +12,15 @@ const Profile = () => {
   const stats = getStats();
   const [userPoints, setUserPoints] = useState({ total: 0, totalCorrect: 0, errors: 0 })
   const [subjectPoints, setSubjectPoints] = useState([])
+  const [ranking,setRanking]=useState([])
   useEffect(() => {
     const setData = async () => {
       let result = await getPoints()
       setUserPoints(result)
       let result2 = await getSubjectPoints()
       setSubjectPoints(result2)
+      let result3 = await getRanking()
+      setRanking(result3)
     }
     setData()
   }, [])
@@ -33,6 +36,25 @@ const Profile = () => {
         //body: JSON.stringify({ correct: correctA })
       }).then((e) => e.json())
       //console.log(result)
+      return result
+    } catch (e) {
+      console.log(e)
+      return { total: 0, totalCorrect: 0, errors: 0 }
+    }
+  }
+  async function getRanking() {
+    //let token = `Bearer ${localStorage.getItem("token")}`
+    try {
+      let result = await fetch(`http://localhost:3000/userAnswer/leaderBoard`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          //"Authorization": token
+        }//,
+        //body: JSON.stringify({ correct: correctA })
+      }).then((e) => e.json())
+      //console.log(result)
+      console.log(result)
       return result
     } catch (e) {
       console.log(e)
@@ -170,6 +192,40 @@ const Profile = () => {
                         <XCircle className="w-4 h-4 text-destructive" />
                         <span className="text-destructive font-medium">
                           {subject.i.totalAnwers-subject.i.correctAnswers/*subjectStats.incorrect*/} erros
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </CardContent>
+          </Card>
+          <br></br>
+          <Card>
+            <CardHeader>
+              <CardTitle>Ranking</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {ranking.length > 0 && ranking.map((rank) => {
+                /*
+                const subjectStats = stats.bySubject[subject.i.id] || {
+                  correct: 0,
+                  incorrect: 0,
+                };*/
+                //const total = subject.i.totalAnwers //subjectStats.correct + subjectStats.incorrect;
+
+                return (
+                  <div key={rank.id} className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold text-foreground">
+                        {rank.name/*subject.name*/}
+                      </h3>
+                    </div>
+                    <div className="flex gap-4 text-sm">
+                      <div className="flex items-center gap-1">
+                        <Trophy className="w-4 h-4 text-success" />
+                        <span className="text-success font-medium">
+                          {rank.points/*subjectStats.correct*/} pontos
                         </span>
                       </div>
                     </div>

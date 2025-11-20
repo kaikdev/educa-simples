@@ -89,7 +89,7 @@ const Exercise = () => {
           "Content-Type": "application/json",
           "Authorization": token
         },
-        body: JSON.stringify({ correct: correctA })
+        body: JSON.stringify({ correct: correctA,questionID: exerciseId})
       }).then((e) => e.json())
       //console.log(result)
     } catch (e) {
