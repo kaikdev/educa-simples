@@ -133,3 +133,44 @@ textarea {
 form.space-y-4 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
   background-color: #f6f6f6 !important;
 }
+
+.card-admin a {
+  border-radius: 25px !important;
+}
+
+.card-admin a .bg-card {
+  background-color: #87d758 !important;
+  border: 2px solid #66a341c9 !important;
+  border-radius: 25px !important;
+}
+
+.card-admin a,
+.card-admin svg.lucide.lucide-delete.text-white {
+  pointer-events: none !important;
+}
+
+.card-admin svg.lucide.lucide-delete.text-white {
+  display: none !important;
+}
+
+.area-cards {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.area-cards > a {
+  flex: 1 1 300px;
+  border-radius: 25px !important;
+}
+
+.card-admin a,
+.area-cards > a,
+.area-cards > a .p-0,
+.area-cards > a .p-0 > div,
+.card-admin a .bg-card {
+  min-height: 350px;
+  align-content: center;
+}
