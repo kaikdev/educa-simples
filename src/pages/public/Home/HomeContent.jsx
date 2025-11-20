@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css'; 
+import '@splidejs/react-splide/css';
 import './HomeContent.css';
 
 import imgPersonagem from '../../../assets/image/personagem.webp';
@@ -18,7 +18,7 @@ import imgPessoa7 from '../../../assets/image/pessoa-7.jpg';
 import imgPessoa8 from '../../../assets/image/pessoa-8.jpg';
 import imgFaq from '../../../assets/image/personagem3.webp';
 import imgContato from '../../../assets/image/personagem4.webp';
-
+import Swal from 'sweetalert2';
 const HomeContent = () => {
     // Estado simples para o Formulário de Contato (Front-end puro)
     const [nome, setNome] = useState('');
@@ -27,26 +27,55 @@ const HomeContent = () => {
     const [loading, setLoading] = useState(false);
 
     // Apenas simula o envio do formulário, sem chamar a API.
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Simulação de Validação Front-end
-        if (!nome || !email || !mensagem) {
-            alert('Por favor, preencha todos os campos do formulário.');
+        if (!nome.trim() || !email || !mensagem.trim()) {
+            //alert('Por favor, preencha todos os campos do formulário.');
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos inválidos',
+                text: 'Por favor, preencha todos os campos do formulário.'
+            });
             return;
         }
-        
-        setLoading(true);
-        console.log('Dados do Contato para Envio (Simulado):', { nome, email, mensagem });
 
-        // Simula o tempo de envio e reseta o formulário
-        setTimeout(() => {
-            alert(`Obrigado, ${nome}! Sua mensagem foi capturada. (Simulação)`);
+        setLoading(true);
+        //console.log('Dados do Contato para Envio (Simulado):', { nome, email, mensagem });
+        try {
+            let result = await fetch("http://localhost:3000/contact/mail", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "Application/json"
+                },
+                body: JSON.stringify({nome:nome, email:email, mensagem:mensagem })
+            }).then((el) => el.json())
+            console.log(result)
+            console.log("enviado")
+            //setTimeout(() => {
+            //alert(`Obrigado, ${nome}! Sua mensagem foi capturada. (Simulação)`);
+            Swal.fire({
+                icon: 'success',
+                title: 'Mensagem Enviada!',
+                text: "Envio da mensagem efetuado com sucesso!",
+            });
             setNome('');
             setEmail('');
             setMensagem('');
-            setLoading(false);
-        }, 1500); 
+            //}, 1500);
+        } catch (e) {
+            console.log(e)
+            Swal.fire({
+                icon: 'warning',
+                title: 'Erro',
+                text: 'erro ao enviar email',
+                confirmButtonText: 'Ok'
+            });
+        }
+
+        setLoading(false);
+        // Simula o tempo de envio e reseta o formulário
     };
 
     return (
@@ -399,7 +428,7 @@ const HomeContent = () => {
                                 <label>Mensagem</label>
                                 <textarea placeholder="Sua mensagem" rows={4} value={mensagem} onChange={(e) => setMensagem(e.target.value)} required></textarea>
                             </div>
-                            
+
                             <button className="btn-default" type="submit" disabled={loading}>
                                 {loading ? 'Enviando...' : 'Enviar Mensagem'}
                             </button>
