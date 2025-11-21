@@ -110,7 +110,7 @@ const SubjectExercises = () => {
           {subjectExercises.map((exercise, index) => (
             <ExerciseCard key={exercise.id} exercise={exercise} index={index} 
             next={(subjectExercises.length-1 >= (index+1)) ? index+1 : 0}
-            arr = {nextE} answered = { answered.includes(exercise.id) ? true : false}
+            arr = {nextE} answered = { (answered.length > 0 && answered.includes(exercise.id)) ? true : false}
             />
           ))}
         </div>
