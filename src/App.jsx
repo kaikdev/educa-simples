@@ -111,7 +111,7 @@ function App() {
                   path="/admin/edit"
                   element={
                     <AdminRoute>
-                      <Admin />
+                      <AdminEdit></AdminEdit>
                     </AdminRoute>
                   }
                 />
