@@ -17,6 +17,9 @@ import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
+//new Pages
+import Ranking from "./pages/Ranking"
+
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -41,6 +44,9 @@ function App() {
                 <Route path="/perfil" element={<Profile />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/admin/edit" element={<Admin />} />
+
+                {/*ranking*/}
+                <Route path="/ranking" element={<Ranking />} />
                 
                 {/* Rota para página não encontrada */}
                 <Route path="*" element={<NotFound />} />
