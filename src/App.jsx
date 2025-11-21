@@ -6,6 +6,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { ProgressProvider } from "./contexts/ProgressContext";
 
+// Rotas protegidas
+import PrivateRoute from "./components/PrivateRoute";
+import AdminRoute from "./components/AdminRoute";
+
 // Páginas públicas (do projeto atual)
 import Home from './pages/public/Home/Home';
 
@@ -37,24 +41,82 @@ function App() {
               <Routes>
                 {/* Rotas Públicas */}
                 <Route path="/" element={<Home />} />
-                
-                {/* Rotas Internas do Novo Projeto */}
-                <Route path="/index" element={<Index />} />
-                <Route path="/materia/:subjectId" element={<SubjectExercises />} />
-                <Route path="/exercicio/:exerciseId/:nextId" element={<Exercise />} />
-                <Route path="/perfil" element={<Profile />} />
-                <Route path="/admin" element={<Admin />} />
-                
-                {/*<Route path="/admin/edit" element={<Admin />} />*/}
 
-                <Route path="/admin/edit" element={<AdminEdit/>} />
+                {/* Rotas internas (qualquer usuário logado) */}
+                <Route
+                  path="/index"
+                  element={
+                    <PrivateRoute>
+                      <Index />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="/materia/:subjectId"
+                  element={
+                    <PrivateRoute>
+                      <SubjectExercises />
+                    </PrivateRoute>
+                  }
+                />
+
+                <Route
+                  path="/exercicio/:exerciseId"
+                  element={
+                    <PrivateRoute>
+                      <Exercise />
+                    </PrivateRoute>
+                  }
+                />
+
+                <Route
+                  path="/exercicio/:exerciseId/:nextId"
+                  element={
+                    <PrivateRoute>
+                      <Exercise />
+                    </PrivateRoute>
+                  }
+                />
+
+                <Route
+                  path="/perfil"
+                  element={
+                    <PrivateRoute>
+                      <Profile />
+                    </PrivateRoute>
+                  }
+                />
 
                 {/*ranking*/}
-
-
-                <Route path="/ranking" element={<Ranking />} />
+                <Route
+                  path="/ranking"
+                  element={
+                    <PrivateRoute>
+                      <Ranking />
+                    </PrivateRoute>
+                  }
+                />
                 
-                {/* Rota para página não encontrada */}
+                {/* Rotas de admin */}
+                <Route
+                  path="/admin"
+                  element={
+                    <AdminRoute>
+                      <Admin />
+                    </AdminRoute>
+                  }
+                />
+                
+                <Route
+                  path="/admin/edit"
+                  element={
+                    <AdminRoute>
+                      <Admin />
+                    </AdminRoute>
+                  }
+                />
+
+                {/* Página não encontrada */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
