@@ -12,7 +12,7 @@ const Profile = () => {
   const stats = getStats();
   const [userPoints, setUserPoints] = useState({ total: 0, totalCorrect: 0, errors: 0 })
   const [subjectPoints, setSubjectPoints] = useState([])
-  const [ranking,setRanking]=useState([])
+  const [ranking, setRanking] = useState([])
   useEffect(() => {
     const setData = async () => {
       let result = await getPoints()
@@ -73,9 +73,12 @@ const Profile = () => {
         //body: JSON.stringify({ correct: correctA })
       }).then((e) => e.json())
       //console.log(result)
-      if(result.msgError){
+      if (result.msgError) {
         throw new Error("erro")
       }
+      console.log("this is the subject info")
+      console.log(result)
+      //result.i.
       return result
     } catch (e) {
       console.log(e)
@@ -180,8 +183,11 @@ const Profile = () => {
                   correct: 0,
                   incorrect: 0,
                 };
-                const total = subject.i.totalAnwers //subjectStats.correct + subjectStats.incorrect;
+                const total = subject.i.userAnswer.length //subjectStats.correct + subjectStats.incorrect;
 
+                const totalCorrect = subject.i.userAnswer.reduce((sum, subject) => {
+                  return sum + (subject.correctAnswer ? 1 : 0);
+                }, 0);
                 return (
                   <div key={subject.i.id} className="space-y-2">
                     <div className="flex items-center justify-between">
@@ -196,13 +202,13 @@ const Profile = () => {
                       <div className="flex items-center gap-1">
                         <Trophy className="w-4 h-4 text-success" />
                         <span className="text-success font-medium">
-                          {subject.i.correctAnswers/*subjectStats.correct*/} acertos
+                          {totalCorrect/*subject.i.correctAnswers*//*subjectStats.correct*/} acertos
                         </span>
                       </div>
                       <div className="flex items-center gap-1">
                         <XCircle className="w-4 h-4 text-destructive" />
                         <span className="text-destructive font-medium">
-                          {subject.i.totalAnwers-subject.i.correctAnswers/*subjectStats.incorrect*/} erros
+                          { total - totalCorrect /*subject.i.totalAnwers - subject.i.correctAnswers*//*subjectStats.incorrect*/} erros
                         </span>
                       </div>
                     </div>

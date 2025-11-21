@@ -140,7 +140,7 @@ const Index = () => {
                 />
               </Link>
 
-              <Link to="/admin/editar" className="card-admin transition-all hover:scale-105 hover:shadow-xl">
+              <Link to="/admin/edit" className="card-admin transition-all hover:scale-105 hover:shadow-xl">
                 <SubjectCard
                   subject={{
                     id: "admin-2",

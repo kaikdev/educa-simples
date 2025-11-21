@@ -19,6 +19,7 @@ import NotFound from "./pages/NotFound";
 
 //new Pages
 import Ranking from "./pages/Ranking"
+import AdminEdit from "./pages/AdminEdit"
 
 import './App.css';
 
@@ -43,9 +44,14 @@ function App() {
                 <Route path="/exercicio/:exerciseId/:nextId" element={<Exercise />} />
                 <Route path="/perfil" element={<Profile />} />
                 <Route path="/admin" element={<Admin />} />
-                <Route path="/admin/edit" element={<Admin />} />
+                
+                {/*<Route path="/admin/edit" element={<Admin />} />*/}
+
+                <Route path="/admin/edit" element={<AdminEdit/>} />
 
                 {/*ranking*/}
+
+
                 <Route path="/ranking" element={<Ranking />} />
                 
                 {/* Rota para página não encontrada */}
