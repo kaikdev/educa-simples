@@ -7,13 +7,15 @@ interface ExerciseCardProps {
   exercise: Exercise;
   index: number;
   next:number;
-  arr:any
+  arr:any,
+  answered:boolean,
 }
 
-const ExerciseCard = ({ exercise, index,next,arr }: ExerciseCardProps) => {
+const ExerciseCard = ({ exercise, index,next,arr, answered }: ExerciseCardProps) => {
   return (
     <Link to={`/exercicio/${exercise.id}/${next}?data=${encodeURIComponent(JSON.stringify(arr))}`}>
-      <Card className="transition-all hover:scale-105 hover:shadow-lg border-2">
+      <Card className="transition-all hover:scale-105 hover:shadow-lg border-2" 
+      style={{ backgroundColor: answered ? "lightgray" : "" }}>
         <CardContent className="p-6 flex items-center gap-4">
           <div className="flex-shrink-0">
             {exercise.completed ? (

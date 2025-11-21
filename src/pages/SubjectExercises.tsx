@@ -12,6 +12,7 @@ const SubjectExercises = () => {
   useEffect(() => {
     findSubject()
     findSubjectExercises()
+    alreadyAnswered()
   }, [])
   async function findSubject(){
     let result = await fetch(`http://localhost:3000/quest/${subjectId}`, {
@@ -40,9 +41,27 @@ const SubjectExercises = () => {
     }
     //console.log(result)
   }
+  async function alreadyAnswered() {
+    //http://[::1]:3000/quest/3/quest
+    try{
+      let token = `Bearer ${localStorage.getItem("token")}`
+      let result = await fetch(`http://localhost:3000/userAnswer/alreadyAnswer/${subjectId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": token
+        },
+      }).then((e)=>e.json())
+      console.log(result)
+      setAnswered(result)
+    }catch(e){
+      console.log(e)
+    }
+  }
   const [subject,setSubject] = useState(null)
   //const subject = subjects.find((s) => s.id === subjectId);
   const [subjectExercises,setSubjectExercises] = useState([])
+  const [answered,setAnswered] = useState([])
   //const subjectExercises = exercises.filter((e) => e.subjectId === subjectId);
 
   if (!subject) {
@@ -91,7 +110,7 @@ const SubjectExercises = () => {
           {subjectExercises.map((exercise, index) => (
             <ExerciseCard key={exercise.id} exercise={exercise} index={index} 
             next={(subjectExercises.length-1 >= (index+1)) ? index+1 : 0}
-            arr = {nextE}
+            arr = {nextE} answered = { answered.includes(exercise.id) ? true : false}
             />
           ))}
         </div>
