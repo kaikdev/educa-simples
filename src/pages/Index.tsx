@@ -41,7 +41,7 @@ const Index = () => {
       <style>
         {`
           .min-h-screen.bg-background {
-            background-image: url("/src/assets/image/background-animais.webp");
+            background-image: url("/image/background-animais.webp");
             background-position: bottom center;
             background-size: 100%;
             background-repeat: no-repeat;

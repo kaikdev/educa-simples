@@ -91,7 +91,7 @@ const Profile = () => {
       <style>
         {`
           .min-h-screen.bg-background {
-            background-image: url("../src/assets/image/background-profile.webp");
+            background-image: url("/image/background-profile.webp");
             background-position: bottom center;
             background-size: 100%;
             background-repeat: no-repeat;

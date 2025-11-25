@@ -80,7 +80,7 @@ const SubjectExercises = () => {
       <style>
         {`
           .min-h-screen.bg-background {
-            background-image: url("/src/assets/image/background-criancas.webp");
+            background-image: url("/image/background-criancas.webp");
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;

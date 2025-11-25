@@ -128,7 +128,7 @@ const Exercise = () => {
       <style>
         {`
           .min-h-screen.bg-background {
-            background-image: url("../src/assets/image/background-exercicios.webp");
+            background-image: url("/image/background-exercicios.webp");
             background-position: left center;
             background-size: contain;
             background-repeat: no-repeat;
